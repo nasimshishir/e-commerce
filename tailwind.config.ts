@@ -12,12 +12,15 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+      padding: "15px",
     },
     extend: {
+      colors: {
+        primary: "#ffffff",
+        accent: "#ff9900",
+        hover: "#CCCCCC",
+        hoveraccent: "#fbac18",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

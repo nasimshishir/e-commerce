@@ -1,4 +1,4 @@
-import { CartProduct } from "@/lib/types";
+import { CartProduct } from "@/lib/types/types";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 const initialState: Array<CartProduct> = [];
