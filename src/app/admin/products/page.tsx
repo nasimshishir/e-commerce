@@ -1,6 +1,6 @@
 "use client"
 import AddForm from "@/components/admin-panel/AddForm"
-import EditPopup from "@/components/admin-panel/EditPopup"
+import EditPopup from "@/components/admin-panel/EditForm"
 import ProductRow from "@/components/admin-panel/ProductRow"
 import { Button } from "@/components/ui/button"
 import {
@@ -28,7 +28,10 @@ const Products = () => {
             .get("/api/get_products")
             .then((res) => setProducts(res.data))
             .catch((err) => console.log(err))
-            .finally(() => dispatch(setLoading(false)))
+            .finally(() => {
+                setTimeout(() => { }, 5000)
+                dispatch(setLoading(false))
+            })
 
     }, [updateTable])
 

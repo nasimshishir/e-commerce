@@ -1,6 +1,5 @@
 import { connectMongoDB } from "@/lib/MongoConnect";
 import Product from "@/lib/models/Product";
-import { error } from "console";
 import { NextRequest, NextResponse } from "next/server";
 
 

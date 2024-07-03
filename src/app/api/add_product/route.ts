@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
         })
         return NextResponse.json(
             {
-                message: "Product Added successfully",
+                message: "Product added successfully",
                 data
             },
             {

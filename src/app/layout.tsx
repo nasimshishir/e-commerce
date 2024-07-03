@@ -4,6 +4,10 @@ import "./globals.css";
 import AuthProvider from "@/components/admin-panel/AuthProvider";
 import App from "./App";
 import { Toaster } from "@/components/ui/toaster";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import { extractRouterConfig } from "uploadthing/server";
+
+import { ourFileRouter } from "@/app/api/uploadthing/core";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +28,9 @@ export default function RootLayout({
           <App>{children}</App>
         </AuthProvider>
         <Toaster />
+        <NextSSRPlugin
+          routerConfig={extractRouterConfig(ourFileRouter)}
+        />
       </body>
     </html>
   );

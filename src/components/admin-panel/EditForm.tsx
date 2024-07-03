@@ -1,3 +1,4 @@
+"use client"
 import { Product } from "@/lib/types/types"
 import { setLoading } from "@/redux/features/loadingSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
@@ -15,9 +16,8 @@ import {
 } from "../ui/form"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
-import { useToast } from "@/components/ui/use-toast"
-import { IoIosCloseCircleOutline } from "react-icons/io"
 import { closePopup } from "@/redux/features/popupSlice"
+import { toast } from "../ui/use-toast"
 
 
 interface EditPopupProps {
@@ -26,7 +26,6 @@ interface EditPopupProps {
 }
 
 const EditForm = ({ setUpdateTable }: EditPopupProps) => {
-    const { toast } = useToast()
 
     const { _id, category, fileKey, imgSrc, name, price }: Product = useAppSelector((state) => state.productReducer)
     const dispatch = useAppDispatch()
@@ -53,8 +52,8 @@ const EditForm = ({ setUpdateTable }: EditPopupProps) => {
             .then((res) => {
                 toast({
                     description: "Product updated successfully"
-                }),
-                    setUpdateTable((prv) => !prv)
+                })
+                setUpdateTable((prv) => !prv)
             })
             .catch(err => console.log(err))
             .finally(() => {
